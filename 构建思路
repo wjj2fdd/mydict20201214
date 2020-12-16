@@ -1,0 +1,22 @@
+1.确定数据库：建立几个表，每个表作用和存储内容
+create database mydict charset=utf8;
+# 建表
+用户： id name passwd
+create table user (id int primary key auto_increment,name varchar(32) not null,passwd varchar(128) not null);
+历史记录：id name word time
+create table hist (id int primary key auto_increment,name varchar(32) not null,word varchar(32) not null,time varchar(64) not null);
+create table
+单词表：id word interpret
+create table dict (id int primary key auto_increment,word varchar(32) not null,interpret text not null);
+
+网络模型
+注册
+    客户端
+        * 输入注册信息
+        * 将信息发送给服务端
+        * 等待反馈
+
+    服务端
+        * 接受注册信息
+        * 验证用户是否存在
+        *
