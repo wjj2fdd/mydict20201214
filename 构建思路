@@ -20,3 +20,6 @@ create table dict (id int primary key auto_increment,word varchar(32) not null,i
         * 接受注册信息
         * 验证用户是否存在
         *
+
+协议指定： 注册 R name passwd
+
