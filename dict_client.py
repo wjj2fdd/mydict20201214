@@ -3,14 +3,13 @@ dict 客户端
 发起请求，展示结果
 """
 from socket import *
-from getpass import getpass
 
 ADDR = ("127.0.0.1", 8000)
 def do_register(s):
     while True:
         name = input("User:")
-        passwd = getpass()
-        passwd1 = getpass()
+        passwd = input("passwd:")
+        passwd1 = input("passwd again:")
         if (" " in name) or (" " in passwd):
             print("用户名或密码不能有空格")
             continue

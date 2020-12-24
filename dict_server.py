@@ -14,22 +14,26 @@ HOST = "0.0.0.0"
 PORT = 8000
 ADDR = (HOST, PORT)
 
+
 # 处理注册
-def do_register(c,db,data):
+def do_register(c, db, data):
     tmp = data.split(" ")
     name = tmp[1]
     passwd = tmp[2]
+    if db.register(name, passwd):
+        c.send(b"OK")
+    else:
+        c.send(b"FAIL")
+
 
 # 处理客户端请求
 def do_request(c, db):
-    cur = db.create_cursor() # 生成游标
+    cur = db.create_cursor()  # 生成游标
     while True:
         data = c.recv(1024).decode()
         print(c.getpeername(), ":", data)
         if data[0] == "R":
-            do_register(c,db,data)
-
-
+            do_register(c, db, data)
 
 
 # 网络连接
@@ -57,7 +61,7 @@ def main():
             print("connect from", addr)
         except KeyboardInterrupt:
             s.close()
-            sys.exit("服务器退出")
+            # sys.exit("服务器退出")
         except Exception as e:
             print(e)
             continue

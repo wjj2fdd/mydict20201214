@@ -23,3 +23,13 @@ create table dict (id int primary key auto_increment,word varchar(32) not null,i
 
 协议指定： 注册 R name passwd
 
+
+
+cookie:
+    import hashlib
+    生成加密对象，参数为“盐”
+    hash = hashlib.md5(("levi"+"the-sat").encode())
+    对密码进行算法加密
+    hash.update(passwd.encode())
+    获取加密后的字符串
+    hash.hexdigest()
