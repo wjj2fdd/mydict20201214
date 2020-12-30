@@ -22,8 +22,39 @@ create table dict (id int primary key auto_increment,word varchar(32) not null,i
         *
 
 协议指定： 注册 R name passwd
+         登录 L name passwd
+         退出 E
+         查词 Q name word
+         历史记录 H name
 
 
+登录
+    客户端
+        * 输入登录信息
+        * 发送请求
+        × 得到回复
+    服务端
+        × 接收请求
+        × 判断是否允许登录
+        × 反馈结果
+单词查询
+    客户端
+        × 输入单词
+        × 发送给服务器
+        × 获取结果
+    服务端：
+        × 接受请求
+        × 查找单词
+        × 将结果发送给服务端
+        × 插入历史记录
+历史记录
+    客户端
+        × 发送请求
+        × 循环接收历史记录
+    服务端
+        × 接受请求
+        × 查询历史记录
+        × 发送历史记录
 
 cookie:
     import hashlib
