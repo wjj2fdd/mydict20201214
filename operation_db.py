@@ -92,9 +92,9 @@ class Database:
 
     # 查询历史记录
     def history(self, name):
-        sql = "select name,word,time from hist where name = '%s'" % name
+        sql = "select name,word,time from hist where name = '%s' order by id desc limit 10" % name
         self.cur.execute(sql)
-        result = self.cur.fetchmany(10)
+        result = self.cur.fetchmall()
         if result:
             return result
         else:
