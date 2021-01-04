@@ -65,6 +65,7 @@ class Database:
         r = self.cur.fetchone()
         print("用户登录结果查询", r)
         if r:
+
             return True
         else:
             return False
