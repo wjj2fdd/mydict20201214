@@ -95,7 +95,7 @@ class Database:
     def history(self, name):
         sql = "select name,word,time from hist where name = '%s' order by id desc limit 10" % name
         self.cur.execute(sql)
-        result = self.cur.fetchmall()
+        result = self.cur.fetchall()
         if result:
             return result
         else:
